@@ -1,0 +1,23 @@
+---
+
+cuckoo_release: HEAD
+#cuckoo_release: 2.0-rc1
+cuckoo_user: _cuckoo
+cuckoo_homedir: /var/_cuckoo
+cuckoo_installdir: "{{ cuckoo_homedir }}/cuckoo"
+
+## depending on your choice here, you might need to review dependencies in meta/main.yml
+## only virtualbox is validated on this role
+cuckoo_machinery: virtualbox
+#cuckoo_machinery: vmware
+#cuckoo_machinery: kvm
+#cuckoo_machinery: xen
+cuckoo_enable_memorydump: true
+## 0 = unlimited
+cuckoo_max_analysis_count: 2
+cuckoo_max_machines_count: 2
+cuckoo_max_vmstartup_count: 2
+
+cuckoo_resultserver_ip: 192.168.56.1
+cuckoo_db_connection:
+

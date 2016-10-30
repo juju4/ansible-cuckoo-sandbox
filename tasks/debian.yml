@@ -1,0 +1,13 @@
+---
+
+- name: apt | Install ...
+  apt: name={{item}} state=present
+  with_items:
+    - git
+
+- set_fact:
+    nginx_conf: /etc/nginx/sites-available
+    supervisor_confdir: /etc/supervisor/conf.d
+    supervisor_ext: conf
+    supervisor_service: supervisor
+

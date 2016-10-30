@@ -1,0 +1,5 @@
+---
+
+- name: ensure cuckoo user in kvm/libvirt group
+  user: name={{ cuckoo_user }} groups=libvirtd append=yes
+

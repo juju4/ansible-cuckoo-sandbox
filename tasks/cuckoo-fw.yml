@@ -1,0 +1,7 @@
+---
+
+## Ansible modules ufw and firewalld don't seem to support nat rules for now
+
+- name: add script for firewall rules
+  template: src=cuckoo-fw.sh.j2 dest=/usr/local/bin/cuckoo-fw.sh mode=0755 backup=yes
+

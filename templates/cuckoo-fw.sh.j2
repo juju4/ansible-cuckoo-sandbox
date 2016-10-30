@@ -1,0 +1,13 @@
+#!/bin/sh
+## Configure firewall rules on Cuckoo sandbox host
+
+ext_if=eth0
+mal_if=vboxnet0
+mal_subnet="192.168.56.0/24"
+
+sysctl -w net.ipv4.ip_forward=1
+
+iptables -A FORWARD -o $ext_if -i $mal_if -s $mal_subnet -m conntrack --ctstate NEW -j ACCEPT
+iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+iptables -A POSTROUTING -t nat -j MASQUERADE
+

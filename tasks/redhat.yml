@@ -1,0 +1,18 @@
+---
+## for haveged (better entropy for gpg)
+- include: redhat-epel.yml
+
+- name: yum | Install ...
+  yum: name={{item}} state=present
+  with_items:
+    - git
+
+- name: yum | Ensure postgresql is running and enabled on boot.
+  service: name=postgresql state=started enabled=yes
+
+- set_fact:
+    nginx_conf: /etc/nginx/conf.d
+    supervisor_confdir: /etc/supervisord.d
+    supervisor_ext: ini
+    supervisor_service: supervisord
+

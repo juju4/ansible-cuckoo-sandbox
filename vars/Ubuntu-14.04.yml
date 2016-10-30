@@ -1,0 +1,25 @@
+---
+
+cuckoo_pkg:
+  - python
+  - python-pip
+  - python-dev
+  - libffi-dev
+  - libssl-dev
+  - libxml2-dev
+  - libxslt1-dev
+  - libjpeg-dev
+  - mongodb
+  - tcpdump
+  - libcap2-bin
+
+cuckoo_pip_pkg:
+  - mitmproxy
+
+cuckoo_pkg_kvm: 
+  - qemu-kvm
+  - libvirt-bin
+  - ubuntu-vm-builder
+  - bridge-utils
+  - python-libvirt
+

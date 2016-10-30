@@ -1,0 +1,8 @@
+---
+
+- name: ensure cuckoo user in vbox group
+  user: name={{ cuckoo_user }} groups=vboxusers append=yes
+
+## network?
+#vboxmanage hostonlyif create
+#vboxmanage hostonlyif ipconfig vboxnet0 --ip 192.168.56.1

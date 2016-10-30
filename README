@@ -1,0 +1,59 @@
+
+upstart script:
+https://github.com/cuckoosandbox/cuckoo/blob/master/utils/service.sh
+no systemd
+
+original or 
+https://github.com/brad-accuvant/cuckoo-modified
+https://www.accuvant.com/blog/improving-reliability-of-sandbox-results
+https://labs.opendns.com/2015/12/15/new-cuckoo-for-you/
+https://github.com/spender-sandbox/
+http://digitalizedwarfare.com/2016/03/24/sandbox-stories-flight-of-the-great-cuckoo-bird/
+
+http://jbremer.org/vmcloak3/
+
+Alternative/complement
+VolatilityBot http://blog.fightingmalware.com/blog/?p=221
+IRMA http://irma.quarkslab.com/
+https://github.com/tklengyel/drakvuf
+http://www.mlsec.org/malheur/
+
+harden virtualbox
+http://pastebin.com/erw5TW2K
+cpuid.1.ecx="0---:----:----:----:----:----:----:----"
+monitor_control.virtual_rdtsc = "FALSE"  
+monitor_control.restrict_backdoor = "TRUE"  
+isolation.tools.getPtrLocation.disable = "TRUE"  
+isolation.tools.setPtrLocation.disable = "TRUE"  
+isolation.tools.setVersion.disable = "TRUE"  
+isolation.tools.getVersion.disable = "TRUE"  
+monitor_control.disable_directexec = "TRUE"  
+monitor_console.restrict_backdoor = "TRUE"  
+monitor_control.disable_chksimd = "TRUE"  
+monitor_control.disable_ntreloc = "TRUE"  
+monitor_control.disable_selfmod = "TRUE"  
+monitor_control.disable_reloc = "TRUE"  
+monitor_control.disable_btinout = "TRUE"  
+monitor_control.disable_btmemspace = "TRUE"  
+monitor_control.disable_btpriv = "TRUE"  
+monitor_control.disable_btseg = "TRUE"
+
+Win7+: might need to disable UAC
+
+https://www.sans.org/reading-room/whitepapers/incident/deployment-flexible-malware-sandbox-environment-open-source-software-36207
+* cuckoo install
+* test targets
+packer
+https://github.com/boxcutter/windows.git
+# make virtualbox/win7x64-pro
+# vagrant box add cuckoo/win7x64-pro box/virtualbox/<name> 
+Maltego cuckooforcanary
+securityonion
+
+https://github.com/spender-sandbox/cuckoo-modified/blob/master/modules/reporting/misp.py
+
+https://infosecspeakeasy.org/t/howto-build-a-cuckoo-sandbox/27
+cuckoo w postgresql ? pdf export? clamav? malheur? inetsim, tor
+
+https://github.com/GoSecure/malboxes
+
