@@ -28,7 +28,7 @@ galaxy_info:
 #dependencies: []
 dependencies:
   - juju4.volatility
-  - juju4.redhat-epel
+#  - juju4.redhat-epel
 #  - ssdeep
 #  - yara
 ## if not using virtualbox (EL, Ubuntu), you can disable this line
