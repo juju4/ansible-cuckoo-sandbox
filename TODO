@@ -51,6 +51,8 @@ Maltego cuckooforcanary
 securityonion
 
 https://github.com/spender-sandbox/cuckoo-modified/blob/master/modules/reporting/misp.py
+https://github.com/cuckoosandbox/cuckoo/issues/525
+https://github.com/MISP/MISP/issues/465
 
 https://infosecspeakeasy.org/t/howto-build-a-cuckoo-sandbox/27
 cuckoo w postgresql ? pdf export? clamav? malheur? inetsim, tor
