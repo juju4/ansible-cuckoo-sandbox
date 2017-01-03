@@ -30,7 +30,7 @@
 ## does not seem to be handled well by ansible pip module
 - name: upgrade pip to latest
   command: pip install --upgrade pip
-  when: pipv.stdout.find("8.1.2") == -1
+  when: pipv.stdout.find("9.0.1") == -1
 
 - name: update requirements
   replace: "dest={{ cuckoo_installdir }}/requirements.txt regexp={{ item.re }} replace={{ item.rep }} backup=yes"

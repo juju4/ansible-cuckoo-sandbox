@@ -1,4 +1,11 @@
 
+At present, there is no easy central way to manage multiple
+cuckoo instances that reach out to multiple geographies
+from the same instance.
+• Solution is to run multiple physical cuckoo instances with
+VPN outside the VM and rotate IPs inside a geo each batch
+run.
+
 upstart script:
 https://github.com/cuckoosandbox/cuckoo/blob/master/utils/service.sh
 no systemd
@@ -58,4 +65,17 @@ https://infosecspeakeasy.org/t/howto-build-a-cuckoo-sandbox/27
 cuckoo w postgresql ? pdf export? clamav? malheur? inetsim, tor
 
 https://github.com/GoSecure/malboxes
+
+seems no docker for honeyd, inetsim (or one maintained/secure)
+https://github.com/carlsaturnino/docker-honeyd
+
+http://blog.michaelboman.org/2014/01/making-virtualbox-nearly-undetectable.html +python scripts
+
+check VM detection
+https://github.com/a0rtega/pafish
+http://blog.checkpoint.com/2016/10/07/defeating-sandbox-evasion-increase-successful-emulation-rate-virtualized-environment/
+
+https://blog.rootshell.be/2014/07/15/offline-malware-analysis-with-host-only-virtualbox-networks/
+https://www.enisa.europa.eu/topics/trainings-for-cybersecurity-specialists/online-training-material/documents/building-artifact-handling-and-analysis-environment-toolset
+inetsim?
 

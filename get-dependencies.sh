@@ -19,4 +19,6 @@ fi
 #[ ! -d $rolesdir/kbrebanov.virtualbox ] && git clone https://github.com/kbrebanov/ansible-virtualbox.git $rolesdir/kbrebanov.virtualbox
 [ ! -d $rolesdir/kbrebanov.virtualbox ] && git clone https://github.com/juju4/ansible-virtualbox.git $rolesdir/kbrebanov.virtualbox
 [ ! -d $rolesdir/volatility ] && git clone https://github.com/juju4/ansible-volatility $rolesdir/juju4.volatility
+## galaxy naming
+[ ! -e $rolesdir/juju4.cuckoo-sandbox ] && ln -s ansible-cuckoo-sandbox $rolesdir/juju4.cuckoo-sandbox
 

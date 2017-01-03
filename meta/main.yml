@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: juju4
-  description: TEMPLATE
+  description: setup cuckoo sandbox, malware analysis system
   license: BSD
   min_ansible_version: 1.9
   #

@@ -2,8 +2,8 @@
 # Cuckoo sandbox ansible role
 
 Ansible role to setup cuckoo sandbox
-https://www.cuckoosandbox.org/
-http://docs.cuckoosandbox.org/en/latest/
+* https://www.cuckoosandbox.org/
+* http://docs.cuckoosandbox.org/en/latest/
 It targets cuckoo 2.0 (currently rc) on Ubuntu and Centos
 
 ## Requirements & Dependencies
@@ -11,6 +11,7 @@ It targets cuckoo 2.0 (currently rc) on Ubuntu and Centos
 ### Ansible
 It was tested on the following versions:
  * 2.0
+ * 2.2
 
 ### Operating systems
 
@@ -85,14 +86,13 @@ include selinux-policy
 ## FAQ
 
 * Windows VM
-To quickly generate template, you can use following project with packer tool
-https://github.com/boxcutter/windows
-This fork has cuckoo agent option
-https://github.com/juju4/windows
+To quickly generate template, you can use following project with packer tool: https://github.com/boxcutter/windows.
+This fork has cuckoo agent option: https://github.com/juju4/windows
+Alternative: https://github.com/mwrock/packer-templates
 
 * Bootstrap network from packer image: vagrant?
 
-* You need to review yourself default VM config, especially part like installed applications, desktop icons, shellbags...
+* You need to review yourself default VM config in order to emulate real system and evade detection, especially part like VM settings, installed applications, desktop icons, shellbags...
 
 
 ## License
