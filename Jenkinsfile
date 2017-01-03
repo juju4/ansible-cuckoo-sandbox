@@ -5,7 +5,7 @@ node {
     try{
         currentBuild.result = "SUCCESS"
         def workspace = pwd()
-        def directory = "cuckoo-sandbox"
+        def directory = "juju4.cuckoo-sandbox"
 
         stage 'Clean Workspace'
             deleteDir()

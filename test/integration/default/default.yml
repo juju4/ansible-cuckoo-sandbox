@@ -5,5 +5,5 @@
 #  vars:
 #    - a:
   roles:
-    - cuckoo-sandbox
+    - juju4.cuckoo-sandbox
 
