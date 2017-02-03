@@ -16,13 +16,13 @@
     {
       "type": "shell",
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}' /etc/ansible/roles",
-      "script": "../get-dependencies.sh"
+      "script": "sh -x ../get-dependencies.sh"
     },
     {
       "type": "ansible-local",
       "playbook_file": "../test/integration/default/default.yml",
       "role_paths": [
-        "/etc/ansible/roles/juju4.cuckoo"
+        "/etc/ansible/roles/juju4.cuckoo-sandbox"
       ],
       "extra_arguments": [ "--become" ]
     },
@@ -126,7 +126,7 @@
       "image": "ubuntu-14-04-x64",
       "region": "nyc2",
       "size": "512mb",
-      "droplet_name": "adduser",
+      "droplet_name": "cuckoo",
       "snapshot_name": "cuckoo-packer-{{isotime \"2006-01-02\"}}"
     }
   ],
