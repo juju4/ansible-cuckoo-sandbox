@@ -8,10 +8,11 @@ env:
 #    init: /sbin/init
 #    run_opts: ""
 ## FIXME! stalling after 10min https://travis-ci.org/juju4/ansible-cuckoo-sandbox/jobs/197854245 (ok in kitchen)
-  - distribution: centos
-    version: 7
-    init: /usr/lib/systemd/systemd
-    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+##      = same with verbose+async,  https://travis-ci.org/juju4/ansible-cuckoo-sandbox/jobs/202495066
+#  - distribution: centos
+#    version: 7
+#    init: /usr/lib/systemd/systemd
+#    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
   - distribution: ubuntu
     version: 16.04
     init: /lib/systemd/systemd
