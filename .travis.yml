@@ -48,7 +48,7 @@ services:
 before_install:
   - sudo apt-get update
   - uname -a
-  - sudo apt-get install linux-headers-generic virtualbox-dkms
+  - sudo apt-get install linux-headers-$(uname -r) virtualbox-dkms
   - ls -l /usr/src/
   - sudo /etc/init.d/virtualbox status
   # Pull container
