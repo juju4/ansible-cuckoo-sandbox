@@ -35,12 +35,15 @@
 
 #- include: cuckoo-db.yml
 
-- include: cuckoo-vbox.yml
-  when: cuckoo_use_vbox is defined and cuckoo_use_vbox
-- include: cuckoo-kvm.yml
-  when: cuckoo_use_kvm is defined and cuckoo_use_kvm
-- include: cuckoo-xen.yml
-  when: cuckoo_use_xen is defined and cuckoo_use_xen
+## virtualbox normally should be usable in appropriate context. NOK travis currently
+- block:
+    - include: cuckoo-vbox.yml
+      when: cuckoo_use_vbox is defined and cuckoo_use_vbox
+    - include: cuckoo-kvm.yml
+      when: cuckoo_use_kvm is defined and cuckoo_use_kvm
+    - include: cuckoo-xen.yml
+      when: cuckoo_use_xen is defined and cuckoo_use_xen
+  when: not (ansible_virtualization_type is defined and (ansible_virtualization_type == "lxc" or ansible_virtualization_type == "docker"))
 
 - include: cuckoo-signatures.yml
 - include: cuckoo-fw.yml
