@@ -3,6 +3,7 @@
 cuckoo_pkg:
   - python
   - python-pip
+  - python-virtualenv
   - python-dev
   - libffi-dev
   - libssl-dev
@@ -12,6 +13,8 @@ cuckoo_pkg:
   - mongodb
   - tcpdump
   - libcap2-bin
+  - swig
+  - libyara-dev
 
 cuckoo_pip_pkg:
   - mitmproxy

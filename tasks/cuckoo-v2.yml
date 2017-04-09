@@ -1,0 +1,23 @@
+---
+
+- name: v2 | Install recent setuptools inside virtualenv
+  pip: "name=setuptools version=33.1.1 state=present virtualenv={{ cuckoo_virtualenv }}"
+## Result 'ImportError: No module named six.moves'
+#  pip: "name=setuptools version=34.3.3 state=present virtualenv={{ rekall_virtualenv }}"
+- name: v2 | Install recent pip inside virtualenv
+  pip: "name=pip version=9.0.1 state=present virtualenv={{ cuckoo_virtualenv }}"
+
+- name: v2 | install cuckoo with pip
+  pip:
+    name: cuckoo
+    state: present
+    virtualenv: "{{ cuckoo_virtualenv }}"
+
+## FIXME! fails on second execution: CuckooCriticalError: Unable to bind ResultServer on 192.168.56.1:2042 [Errno 99] Cannot assign requested address.
+- name: v2 | set cuckoo working directory
+  command: "{{ cuckoo_virtualenv }}/bin/cuckoo --cwd {{ cuckoo_cwd }}"
+  args:
+    creates: "{{ cuckoo_cwd }}/__init__.py"
+  become: yes
+  become_user: "{{ cuckoo_user }}"
+

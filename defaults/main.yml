@@ -2,9 +2,12 @@
 
 cuckoo_release: HEAD
 #cuckoo_release: 2.0-rc1
+#cuckoo_release: legacy
 cuckoo_user: _cuckoo
 cuckoo_homedir: /var/_cuckoo
 cuckoo_installdir: "{{ cuckoo_homedir }}/cuckoo"
+cuckoo_virtualenv: "{{ cuckoo_homedir }}/env-cuckoo"
+cuckoo_cwd: ~/.cuckoo
 
 ## depending on your choice here, you might need to review dependencies in meta/main.yml
 ## only virtualbox is validated on this role
@@ -20,4 +23,11 @@ cuckoo_max_vmstartup_count: 2
 
 cuckoo_resultserver_ip: 192.168.56.1
 cuckoo_db_connection:
+
+cuckoo_use_vbox: true
+cuckoo_vbox_hostonlyif_ip: 192.168.56.1
+cuckoo_vbox_hostonlyif_mask: 255.255.255.0
+
+cuckoo_use_kvm: false
+cuckoo_use_xen: false
 

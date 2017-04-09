@@ -25,4 +25,6 @@ suites:
   - name: default
     run_list:
     attributes:
-
+  - name: default-cuckoo-legacy
+    run_list:
+    attributes:

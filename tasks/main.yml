@@ -23,23 +23,10 @@
        version={{ cuckoo_release }}
        update=no
 
-- name: check current pip version
-  command: "pip --version"
-  changed_when: false
-  register: pipv
-## does not seem to be handled well by ansible pip module
-- name: upgrade pip to latest
-  command: pip install --upgrade pip
-  when: pipv.stdout.find("9.0.1") == -1
-
-- name: update requirements
-  replace: "dest={{ cuckoo_installdir }}/requirements.txt regexp={{ item.re }} replace={{ item.rep }} backup=yes"
-  with_items:
-    - { re: '^http://pefile.googlecode.com/files/pefile-1.2.10-139.tar.gz#egg=pefile', rep: 'https://github.com/erocarrera/pefile/files/192316/pefile-2016.3.28.tar.gz' }
-    - { re: '^pyOpenSSL==0.15.1', rep: 'pyOpenSSL==16.1.0' }
-    - { re: '^pyasn1==0.1.8', rep: 'pyasn1==0.1.9' }
-- name: install pip requirements
-  pip: requirements={{ cuckoo_installdir }}/requirements.txt
+- include: legacy.yml
+  when: cuckoo_release == 'legacy'
+- include: cuckoo-v2.yml
+  when: cuckoo_release != 'legacy'
 
 ## https://github.com/lxc/lxd/issues/2507
 - name: set capability on tcpdump
@@ -47,18 +34,6 @@
   when: not (ansible_virtualization_type is defined and (ansible_virtualization_type == "lxc" or ansible_virtualization_type == "docker"))
 
 #- include: cuckoo-db.yml
-
-- name: ensure cuckoo directories exist
-  file: dest={{ cuckoo_installdir }}/log owner={{ cuckoo_user }} mode=0755 state=directory recurse=yes
-  with_items:
-    - "{{ cuckoo_installdir }}/db"
-    - "{{ cuckoo_installdir }}/log"
-    - "{{ cuckoo_installdir }}/storage"
-    - "{{ cuckoo_installdir }}/data/yara"
-    - "{{ cuckoo_installdir }}/data/monitor"
-    - "{{ cuckoo_installdir }}/modules/signatures"
-    - "{{ cuckoo_installdir }}/analyzer/windows/bin"
-    - "{{ cuckoo_installdir }}/agent/android"
 
 - include: cuckoo-vbox.yml
   when: cuckoo_use_vbox is defined and cuckoo_use_vbox

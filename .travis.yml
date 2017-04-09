@@ -17,11 +17,22 @@ env:
     version: 16.04
     init: /lib/systemd/systemd
     run_opts: "'--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro'"
-#    run_opts: "--cap-add SYS_ADMIN"
+    cuckoo_version: HEAD
   - distribution: ubuntu
     version: 14.04
     init: /sbin/init
     run_opts: ""
+    cuckoo_version: HEAD
+  - distribution: ubuntu
+    version: 16.04
+    init: /lib/systemd/systemd
+    run_opts: "'--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro'"
+    cuckoo_version: legacy
+  - distribution: ubuntu
+    version: 14.04
+    init: /sbin/init
+    run_opts: ""
+    cuckoo_version: legacy
 #  - distribution: ubuntu
 #    version: 12.04
 #    init: /sbin/init

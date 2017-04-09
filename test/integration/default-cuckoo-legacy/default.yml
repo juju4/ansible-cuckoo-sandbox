@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+#- hosts: test-kitchen
+  vars:
+    - cuckoo_release: legacy
+  roles:
+    - juju4.cuckoo-sandbox
+
