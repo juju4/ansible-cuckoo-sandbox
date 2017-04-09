@@ -46,7 +46,9 @@ services:
   - docker
 
 before_install:
-  # - sudo apt-get update
+  - sudo apt-get update
+  - sudo apt-get install linux-headers-generic virtualbox-dkms
+  - sudo /etc/init.d/virtualbox status
   # Pull container
   - 'sudo docker pull ${distribution}:${version}'
   - env
@@ -68,12 +70,12 @@ script:
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/juju4.cuckoo-sandbox/test/integration/default/default.yml --syntax-check'
 
   # Test role.
-  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/juju4.cuckoo-sandbox/test/integration/default/default.yml -vvvv'
+  - 'sudo docker exec -v /dev/vboxdrv:/dev/vboxdrv --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/juju4.cuckoo-sandbox/test/integration/default/default.yml -vvvv'
 
   # Test role idempotence.
 ## known fail
   - >
-    sudo docker exec "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/juju4.cuckoo-sandbox/test/integration/default/default.yml
+    sudo docker exec -v /dev/vboxdrv:/dev/vboxdrv "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/juju4.cuckoo-sandbox/test/integration/default/default.yml
     | tee /tmp/idempotency.log
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)

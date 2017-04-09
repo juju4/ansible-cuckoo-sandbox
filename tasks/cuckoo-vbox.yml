@@ -3,15 +3,22 @@
 - name: ensure cuckoo user in vbox group
   user: name={{ cuckoo_user }} groups=vboxusers append=yes
 
-- name: check if vboxnet0 exists
-  command: ifconfig vboxnet0
-  changed_when: false
-  ignore_errors: true
-  register: vnet0
-- name: initialize vboxnet0
-  command: "{{ item }}"
-  with_items:
-    - "VBoxManage hostonlyif create"
-    - "VBoxManage hostonlyif ipconfig vboxnet0 --ip {{ cuckoo_vbox_hostonlyif_ip }} --netmask {{ cuckoo_vbox_hostonlyif_mask }}"
-  when: vnet0|failed
+- name: check if /dev/vboxdrv is available
+  stat:
+    path: /dev/vboxdrv
+  register: vboxdrv
+
+- block:
+    - name: check if vboxnet0 exists
+      command: ifconfig vboxnet0
+      changed_when: false
+      ignore_errors: true
+      register: vnet0
+    - name: initialize vboxnet0
+      command: "{{ item }}"
+      with_items:
+        - "VBoxManage hostonlyif create"
+        - "VBoxManage hostonlyif ipconfig vboxnet0 --ip {{ cuckoo_vbox_hostonlyif_ip }} --netmask {{ cuckoo_vbox_hostonlyif_mask }}"
+      when: vnet0|failed
+  when: vboxdrv.stat.exists
 
