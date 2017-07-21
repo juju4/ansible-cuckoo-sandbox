@@ -13,7 +13,7 @@ cuckoo_pkg:
   - mongodb
   - tcpdump
   - libcap
-  - libyara-devel
+  - yara-devel
 
 cuckoo_pip_pkg:
   - mitmproxy
