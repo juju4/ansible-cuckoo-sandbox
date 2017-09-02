@@ -1,13 +1,8 @@
 ---
 
-- name: apt | Install ...
-  apt: name={{item}} state=present
-  with_items:
-    - git
-
-- set_fact:
-    nginx_conf: /etc/nginx/sites-available
-    supervisor_confdir: /etc/supervisor/conf.d
-    supervisor_ext: conf
-    supervisor_service: supervisor
+## https://cuckoo.sh/docs/usage/rooter.html
+- name: Create cuckoo group for rooter function [2.0.3, debian-like only]
+  group:
+    name: cuckoo
+    state: present
 
