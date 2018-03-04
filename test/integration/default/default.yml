@@ -2,8 +2,8 @@
 
 - hosts: all
 #- hosts: test-kitchen
-#  vars:
-#    - a:
+  vars:
+    - virtualbox_version: 5.2
   roles:
     - juju4.cuckoo-sandbox
 
