@@ -13,6 +13,7 @@ It targets cuckoo 2.0 (currently rc) on Ubuntu and Centos
 It was tested on the following versions:
  * 2.0
  * 2.2
+ * 2.5
 
 ### Operating systems
 
