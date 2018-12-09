@@ -30,4 +30,3 @@ cuckoo_vbox_hostonlyif_mask: 255.255.255.0
 
 cuckoo_use_kvm: false
 cuckoo_use_xen: false
-

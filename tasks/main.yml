@@ -56,4 +56,3 @@
 
 - include: cuckoo-signatures.yml
 - include: cuckoo-fw.yml
-
