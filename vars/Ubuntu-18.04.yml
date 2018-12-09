@@ -25,4 +25,3 @@ cuckoo_pkg_kvm:
   - ubuntu-vm-builder
   - bridge-utils
   - python-libvirt
-

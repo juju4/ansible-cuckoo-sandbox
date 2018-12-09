@@ -1,5 +1,8 @@
 ---
 
 - name: ensure cuckoo db dir exists
-  file: dest={{ cuckoo_installdir }}/db owner={{ cuckoo_user }} mode=0755 state=directory
-
+  file:
+    dest: "{{ cuckoo_installdir }}/db"
+    owner: "{{ cuckoo_user }}"
+    mode: '0755'
+    state: directory

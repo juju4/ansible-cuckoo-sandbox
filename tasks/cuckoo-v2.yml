@@ -13,11 +13,11 @@
     state: present
     virtualenv: "{{ cuckoo_virtualenv }}"
 
-## FIXME! fails on second execution: CuckooCriticalError: Unable to bind ResultServer on 192.168.56.1:2042 [Errno 99] Cannot assign requested address.
+## FIXME! fails on second execution: CuckooCriticalError: Unable to bind ResultServer on
+##  192.168.56.1:2042 [Errno 99] Cannot assign requested address.
 - name: v2 | set cuckoo working directory
   command: "{{ cuckoo_virtualenv }}/bin/cuckoo --cwd {{ cuckoo_cwd }}"
   args:
     creates: "{{ cuckoo_cwd }}/__init__.py"
   become: yes
   become_user: "{{ cuckoo_user }}"
-

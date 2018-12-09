@@ -21,4 +21,3 @@
         - "VBoxManage hostonlyif ipconfig vboxnet0 --ip {{ cuckoo_vbox_hostonlyif_ip }} --netmask {{ cuckoo_vbox_hostonlyif_mask }}"
       when: vnet0|failed
   when: vboxdrv.stat.exists
-

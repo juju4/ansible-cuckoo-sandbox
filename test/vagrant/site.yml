@@ -2,5 +2,4 @@
 
 - hosts: all
   roles:
-    - juju4.cuckoo-sandbox
-
+    - juju4.cuckoo_sandbox

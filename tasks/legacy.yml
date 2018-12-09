@@ -1,9 +1,15 @@
 ---
 
 - name: Legacy | update requirements
-  replace: "dest={{ cuckoo_installdir }}/requirements.txt regexp={{ item.re }} replace={{ item.rep }} backup=yes"
+  replace:
+    dest: "{{ cuckoo_installdir }}/requirements.txt"
+    regexp: "{{ item.re }}"
+    replace: "{{ item.rep }}"
+    backup: yes
   with_items:
-    - { re: '^http://pefile.googlecode.com/files/pefile-1.2.10-139.tar.gz#egg=pefile', rep: 'https://github.com/erocarrera/pefile/files/192316/pefile-2016.3.28.tar.gz' }
+    - { re: '^http://pefile.googlecode.com/files/pefile-1.2.10-139.tar.gz#egg=pefile',
+        rep: 'https://github.com/erocarrera/pefile/files/192316/pefile-2016.3.28.tar.gz'
+      }
     - { re: '^pyOpenSSL==0.15.1', rep: 'pyOpenSSL==16.1.0' }
     - { re: '^pyasn1==0.1.8', rep: 'pyasn1==0.1.9' }
     - { re: '^cffi==1.6.0', rep: 'cffi==1.10.0' }
@@ -23,4 +29,3 @@
     - "{{ cuckoo_installdir }}/modules/signatures"
     - "{{ cuckoo_installdir }}/analyzer/windows/bin"
     - "{{ cuckoo_installdir }}/agent/android"
-

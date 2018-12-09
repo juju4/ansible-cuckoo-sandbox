@@ -39,4 +39,3 @@ suites:
   - name: default-cuckoo-legacy
     run_list:
     attributes:
-

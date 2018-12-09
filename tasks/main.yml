@@ -34,7 +34,10 @@
 ## https://github.com/lxc/lxd/issues/2507
 - name: set capability on tcpdump
   capabilities: path=/usr/sbin/tcpdump capability='cap_net_raw,cap_net_admin=eip' state=present
-  when: not (ansible_virtualization_type is defined and (ansible_virtualization_type == "lxc" or ansible_virtualization_type == "docker"))
+  when: >
+    not (ansible_virtualization_type is defined and
+          (ansible_virtualization_type == "lxc" or ansible_virtualization_type == "docker")
+        )
 
 #- include: cuckoo-db.yml
 
@@ -46,7 +49,10 @@
       when: cuckoo_use_kvm is defined and cuckoo_use_kvm
     - include: cuckoo-xen.yml
       when: cuckoo_use_xen is defined and cuckoo_use_xen
-  when: not (ansible_virtualization_type is defined and (ansible_virtualization_type == "lxc" or ansible_virtualization_type == "docker"))
+  when: >
+    not (ansible_virtualization_type is defined and
+          (ansible_virtualization_type == "lxc" or ansible_virtualization_type == "docker")
+        )
 
 - include: cuckoo-signatures.yml
 - include: cuckoo-fw.yml

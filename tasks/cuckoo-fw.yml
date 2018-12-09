@@ -4,4 +4,3 @@
 
 - name: add script for firewall rules
   template: src=cuckoo-fw.sh.j2 dest=/usr/local/bin/cuckoo-fw.sh mode=0755 backup=yes
-

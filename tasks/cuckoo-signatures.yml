@@ -1,8 +1,9 @@
 ---
 
 - name: update community signatures
-#  command: "{{ cuckoo_installdir }}/utils/community.py -waf creates={{ cuckoo_installdir }}/modules/signatures/network"
-  command: "{{ cuckoo_installdir }}/utils/community.py -waf creates={{ cuckoo_installdir }}/analyzer/windows/bin/Procmon.exe"
+  command: "{{ cuckoo_installdir }}/utils/community.py -waf"
+  args:
+    creates: "{{ cuckoo_installdir }}/analyzer/windows/bin/Procmon.exe"
   when: cuckoo_release == 'legacy'
 
 - name: download cuckoo signatures
@@ -12,4 +13,3 @@
   become: yes
   become_user: "{{ cuckoo_user }}"
   when: cuckoo_release != 'legacy'
-

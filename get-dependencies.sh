@@ -9,7 +9,7 @@ else
 rolesdir=$(dirname $0)/..
 fi
 
-[ ! -d $rolesdir/juju4.redhat-epel ] && git clone https://github.com/juju4/ansible-redhat-epel $rolesdir/juju4.redhat-epel
+[ ! -d $rolesdir/juju4.redhat_epel ] && git clone https://github.com/juju4/ansible-redhat-epel $rolesdir/juju4.redhat_epel
 #[ ! -d $rolesdir/kbrebanov.epel ] && git clone https://github.com/kbrebanov/ansible-epel.git $rolesdir/kbrebanov.epel
 [ ! -d $rolesdir/kbrebanov.epel ] && git clone https://github.com/juju4/ansible-epel.git $rolesdir/kbrebanov.epel
 #[ ! -d $rolesdir/kbrebanov.selinux ] && git clone https://github.com/kbrebanov/ansible-selinux.git $rolesdir/kbrebanov.selinux
@@ -21,9 +21,8 @@ fi
 [ ! -d $rolesdir/kbrebanov.virtualbox ] && git clone https://github.com/juju4/ansible-virtualbox.git $rolesdir/kbrebanov.virtualbox
 [ ! -d $rolesdir/volatility ] && git clone https://github.com/juju4/ansible-volatility $rolesdir/juju4.volatility
 ## galaxy naming: kitchen fails to transfer symlink folder
-#[ ! -e $rolesdir/juju4.cuckoo-sandbox ] && ln -s ansible-cuckoo-sandbox $rolesdir/juju4.cuckoo-sandbox
-[ ! -e $rolesdir/juju4.cuckoo-sandbox ] && cp -R $rolesdir/ansible-cuckoo-sandbox $rolesdir/juju4.cuckoo-sandbox
+#[ ! -e $rolesdir/juju4.cuckoo_sandbox ] && ln -s ansible-cuckoo-sandbox $rolesdir/juju4.cuckoo_sandbox
+[ ! -e $rolesdir/juju4.cuckoo_sandbox ] && cp -R $rolesdir/ansible-cuckoo-sandbox $rolesdir/juju4.cuckoo_sandbox
 
 ## don't stop build on this script return code
 true
-

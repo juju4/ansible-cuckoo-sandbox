@@ -25,4 +25,3 @@ cuckoo_pkg_kvm:
   - libvirt-daemon-kvm
   - bridge-utils
   - libvirt-python
-

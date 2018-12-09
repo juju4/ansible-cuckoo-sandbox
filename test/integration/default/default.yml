@@ -5,5 +5,4 @@
   vars:
     - virtualbox_version: 5.2
   roles:
-    - juju4.cuckoo-sandbox
-
+    - juju4.cuckoo_sandbox

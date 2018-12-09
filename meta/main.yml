@@ -1,14 +1,10 @@
 ---
 galaxy_info:
+  role_name: cuckoo_sandbox
   author: juju4
   description: setup cuckoo sandbox, malware analysis system
   license: BSD
   min_ansible_version: 1.9
-  #
-  # Below are all platforms currently available. Just uncomment
-  # the ones that apply to your role. If you don't see your
-  # platform on this list, let us know and we'll get it added!
-  #
   platforms:
   - name: EL
     versions:
@@ -19,21 +15,15 @@ galaxy_info:
     - trusty
     - xenial
     - bionic
-  #
-  # Below are all categories currently available. Just as with
-  # the platforms above, uncomment those that apply to your role.
-  #
   galaxy_tags:
   - system
   - security
-#dependencies: []
 dependencies:
   - juju4.volatility
-  - juju4.redhat-epel
+  - juju4.redhat_epel
 #  - ssdeep
 #  - yara
 ## if not using virtualbox (EL, Ubuntu), you can disable this line
   - kbrebanov.virtualbox
 ## if using kvm/libvirt (Ubuntu only)
 #  - kbrebanov.libvirt
-
