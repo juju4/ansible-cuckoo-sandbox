@@ -11,8 +11,9 @@
   when: ansible_os_family == "RedHat"
 
 - name: install packages dependencies
-  package: name={{ item }} state=present
-  with_items: "{{ cuckoo_pkg }}"
+  package: name={{ cuckoo_pkg }} state=present
+  register: pkg_result
+  until: pkg_result is success
 
 - name: check role user exists
   user: "name={{ cuckoo_user }} home={{ cuckoo_homedir }}"

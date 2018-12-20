@@ -17,6 +17,8 @@
 
 - name: Legacy | install pip requirements
   pip: requirements={{ cuckoo_installdir }}/requirements.txt
+  register: pkg_result
+  until: pkg_result is success
 
 - name: Legacy | ensure cuckoo directories exist
   file: dest={{ cuckoo_installdir }}/log owner={{ cuckoo_user }} mode=0755 state=directory recurse=yes
