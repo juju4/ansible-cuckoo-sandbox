@@ -19,7 +19,7 @@
     virtualenv: "{{ cuckoo_virtualenv }}"
   register: pkg_result
   until: pkg_result is success
-  when: cuckoo_python is defined and cuckoo_python != 'python3'
+  when: cuckoo_python is not defined or cuckoo_python != 'python3'
 
 - name: v2 | install cuckoo with pip
   pip:
