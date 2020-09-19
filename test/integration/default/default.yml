@@ -2,6 +2,6 @@
 
 - hosts: all
   vars:
-    - virtualbox_version: 5.2
+    - virtualbox_version: 6.1
   roles:
     - juju4.cuckoo_sandbox
