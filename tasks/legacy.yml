@@ -16,7 +16,9 @@
     - { re: '^pycparser==2.14', rep: 'pycparser==2.18' }
 
 - name: Legacy | install pip requirements
-  pip: requirements={{ cuckoo_installdir }}/requirements.txt
+  pip:
+    requirements: "{{ cuckoo_installdir }}/requirements.txt"
+    executable: "{{ cuckoo_pip | default('pip') }}"
   register: pkg_result
   until: pkg_result is success
 

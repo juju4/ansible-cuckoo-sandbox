@@ -4,15 +4,14 @@ sudo: required
 
 env:
 #  - distribution: centos
-#    version: 6
-#    init: /sbin/init
-#    run_opts: ""
-## FIXME! stalling after 10min https://travis-ci.org/juju4/ansible-cuckoo-sandbox/jobs/197854245 (ok in kitchen)
-##      = same with verbose+async,  https://travis-ci.org/juju4/ansible-cuckoo-sandbox/jobs/202495066
-#  - distribution: centos
 #    version: 7
 #    init: /usr/lib/systemd/systemd
 #    run_opts: "'--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro'"
+  - distribution: ubuntu
+    version: 20.04
+    init: /lib/systemd/systemd
+    run_opts: "'--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro'"
+    cuckoo_version: HEAD
   - distribution: ubuntu
     version: 18.04
     init: /lib/systemd/systemd
@@ -23,29 +22,11 @@ env:
     init: /lib/systemd/systemd
     run_opts: "'--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro'"
     cuckoo_version: HEAD
-#  - distribution: ubuntu
-#    version: 14.04
-#    init: /sbin/init
-#    run_opts: ""
-#    cuckoo_version: HEAD
   - distribution: ubuntu
-    version: 16.04
+    version: 20.04
     init: /lib/systemd/systemd
     run_opts: "'--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro'"
     cuckoo_version: legacy
-#  - distribution: ubuntu
-#    version: 14.04
-#    init: /sbin/init
-#    run_opts: ""
-#    cuckoo_version: legacy
-#  - distribution: ubuntu
-#    version: 12.04
-#    init: /sbin/init
-#    run_opts: ""
-#  - distribution: alpine
-#    version: 3.4
-#    init: /sbin/init
-#    run_opts: ""
 
 services:
   - docker

@@ -16,6 +16,7 @@
     name: cuckoo
     state: present
     virtualenv: "{{ cuckoo_virtualenv }}"
+    virtualenv_python: "{{ cuckoo_python | default('python') }}"
   register: pkg_result
   until: pkg_result is success
 

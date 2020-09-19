@@ -1,0 +1,30 @@
+---
+
+cuckoo_pkg:
+  - python3
+  - python3-pip
+  - python3-virtualenv
+  - python3-dev
+  - libffi-dev
+  - libssl-dev
+  - libxml2-dev
+  - libxslt1-dev
+  - libjpeg-dev
+  - mongodb
+  - tcpdump
+  - libcap2-bin
+  - swig
+  - libyara-dev
+
+cuckoo_pip_pkg:
+  - mitmproxy
+
+cuckoo_pkg_kvm: 
+  - qemu-kvm
+  - libvirt-bin
+  - ubuntu-vm-builder
+  - bridge-utils
+  - python-libvirt
+
+cuckoo_python: python3
+cuckoo_pip: pip3

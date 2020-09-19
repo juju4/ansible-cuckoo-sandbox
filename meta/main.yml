@@ -15,6 +15,7 @@ galaxy_info:
     - trusty
     - xenial
     - bionic
+    - focal
   galaxy_tags:
   - system
   - security
