@@ -11,6 +11,16 @@
   register: pkg_result
   until: pkg_result is success
 
+- name: v2 | Force version for pyrsistent inside virtualenv
+  pip:
+    name: pyrsistent
+    version: 0.16.1
+    state: present
+    virtualenv: "{{ cuckoo_virtualenv }}"
+  register: pkg_result
+  until: pkg_result is success
+  when: cuckoo_python is defined and cuckoo_python != 'python3'
+
 - name: v2 | install cuckoo with pip
   pip:
     name: cuckoo
