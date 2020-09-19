@@ -1,10 +1,9 @@
 ---
 
 cuckoo_pkg:
-  - python3
-  - python3-pip
-  - python3-virtualenv
-  - python3-dev
+  - python2
+  - python-setuptools
+  - python2-dev
   - libffi-dev
   - libssl-dev
   - libxml2-dev
@@ -26,5 +25,5 @@ cuckoo_pkg_kvm:
   - bridge-utils
   - python-libvirt
 
-cuckoo_python: python3
-cuckoo_pip: pip3
+cuckoo_python: python2
+cuckoo_pip: pip2

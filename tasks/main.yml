@@ -27,6 +27,19 @@
 - include: debian.yml
   when: ansible_os_family == 'Debian'
 
+- block:
+    - name: Focal | get-pip
+      get_url:
+        url: https://bootstrap.pypa.io/get-pip.py
+        dest: /usr/local/bin/get-pip.py
+        checksum: 'sha256:6e0bb0a2c2533361d7f297ed547237caf1b7507f197835974c0dd7eba998c53c'
+        mode: '0600'
+    - name: Focal | install pip2
+      command: python2 /usr/local/bin/get-pip.py pip==20.1.1
+      args:
+        creates: /usr/local/bin/pip2
+  when: ansible_distribution_release == 'focal'
+
 - include: legacy.yml
   when: cuckoo_release == 'legacy'
 - include: cuckoo-v2.yml
