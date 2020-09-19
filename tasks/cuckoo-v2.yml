@@ -1,13 +1,23 @@
 ---
 
 - name: v2 | Install recent setuptools inside virtualenv
-  pip: "name=setuptools version=33.1.1 state=present virtualenv={{ cuckoo_virtualenv }}"
+  pip:
+    name: setuptools
+    version: 33.1.1
+    state: present
+    virtualenv: "{{ cuckoo_virtualenv }}"
+    virtualenv_python: "{{ cuckoo_python | default('python') }}"
 ## Result 'ImportError: No module named six.moves'
 #  pip: "name=setuptools version=34.3.3 state=present virtualenv={{ rekall_virtualenv }}"
   register: pkg_result
   until: pkg_result is success
 - name: v2 | Install recent pip inside virtualenv
-  pip: "name=pip version=9.0.1 state=present virtualenv={{ cuckoo_virtualenv }}"
+  pip:
+    name: pip
+    version: 9.0.1
+    state: present
+    virtualenv: "{{ cuckoo_virtualenv }}"
+    virtualenv_python: "{{ cuckoo_python | default('python') }}"
   register: pkg_result
   until: pkg_result is success
 
@@ -17,6 +27,7 @@
     version: 0.16.1
     state: present
     virtualenv: "{{ cuckoo_virtualenv }}"
+    virtualenv_python: "{{ cuckoo_python | default('python') }}"
   register: pkg_result
   until: pkg_result is success
   when: cuckoo_python is not defined or cuckoo_python != 'python3'
