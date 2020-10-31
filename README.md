@@ -1,5 +1,5 @@
-[![Build Status - Master](https://travis-ci.org/juju4/ansible-cuckoo-sandbox.svg?branch=master)](https://travis-ci.org/juju4/ansible-cuckoo-sandbox)
-[![Build Status - Devel](https://travis-ci.org/juju4/ansible-cuckoo-sandbox.svg?branch=devel)](https://travis-ci.org/juju4/ansible-cuckoo-sandbox/branches)
+[![Build Status - Master](https://travis-ci.com/juju4/ansible-cuckoo-sandbox.svg?branch=master)](https://travis-ci.com/juju4/ansible-cuckoo-sandbox)
+[![Build Status - Devel](https://travis-ci.com/juju4/ansible-cuckoo-sandbox.svg?branch=devel)](https://travis-ci.com/juju4/ansible-cuckoo-sandbox/branches)
 # Cuckoo sandbox ansible role
 
 Ansible role to setup cuckoo sandbox
