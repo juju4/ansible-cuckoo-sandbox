@@ -1,3 +1,6 @@
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+# DEPRECATED/LOOKING FOR MAINTAINERS -> to be archived
+
 [![Build Status - Master](https://travis-ci.com/juju4/ansible-cuckoo-sandbox.svg?branch=master)](https://travis-ci.com/juju4/ansible-cuckoo-sandbox)
 [![Build Status - Devel](https://travis-ci.com/juju4/ansible-cuckoo-sandbox.svg?branch=devel)](https://travis-ci.com/juju4/ansible-cuckoo-sandbox/branches)
 # Cuckoo sandbox ansible role
